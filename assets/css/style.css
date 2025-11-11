@@ -1,0 +1,143 @@
+/* Base */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #222;
+}
+
+/* Header / Top Navigation Bar */
+header {
+  background: #333;               
+  color: white;
+  padding: 15px 40px;             
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #0077cc;  
+}
+
+header .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: #eee;                   
+  margin: 0 20px;                
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;             
+  border-radius: 4px;            
+  transition: background 0.3s, color 0.3s;
+}
+
+header nav a:hover {
+  background: #0077cc;           
+  color: white;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  margin: 0;
+}
+
+/* Sidebar (Left Column) */
+.sidebar {
+  flex: 1;
+  max-width: 330px;       
+  background: #e0e0e0;    
+  color: #222;
+  padding: 30px 20px;
+  text-align: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.sidebar img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;     
+  margin-bottom: 20px;
+}
+
+.sidebar h2 {
+  margin: 10px 0 15px 0;   /* reduced bottom margin */
+  font-size: 22px;          /* bigger for readability */
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* Reduce vertical gap between sidebar links */
+.sidebar p {
+  margin: 4px 0;
+  padding: 0;
+}
+
+.sidebar a {
+  display: block;
+  margin: 0;               /* remove extra margin */
+  padding: 4px 0;          /* slightly less padding */
+  color: #0077cc;         
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #005999;         
+}
+
+/* Main Content (Right Column) */
+.content {
+  flex: 3;
+  padding: 30px;
+}
+
+.content section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.content h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #666;
+}
+
+.timeline-event {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.timeline-event h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #111;
+}
+
+.timeline-event p {
+  margin: 5px 0 0;
+  color: #444;
+}
