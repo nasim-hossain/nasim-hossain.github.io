@@ -51,6 +51,11 @@ header nav a:hover {
   text-decoration: none;
 }
 
+header nav a.active {
+  background-color: #3498db;
+  font-weight: 600;
+}
+
 /* Container Layout */
 .container {
   display: flex;
@@ -141,6 +146,14 @@ header nav a:hover {
 
 .content section {
   margin-bottom: 2rem;
+}
+
+.content section:first-child {
+  margin-top: 0;
+}
+
+.content section:first-child h2 {
+  margin-top: 0;
 }
 
 .content ul, .content ol {
