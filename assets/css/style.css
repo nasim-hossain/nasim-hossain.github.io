@@ -156,6 +156,11 @@ header nav a.active {
   margin-top: 0;
 }
 
+.content p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
 .content ul, .content ol {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
