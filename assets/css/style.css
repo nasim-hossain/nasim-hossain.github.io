@@ -546,7 +546,7 @@ header nav a.active {
 /* Multiple Images Grid */
 .project-images-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 1.25rem 0;
 }
@@ -556,16 +556,20 @@ header nav a.active {
   max-width: 100%;
   margin: 0;
   object-fit: cover;
-  height: 250px;
+  height: auto;
+  max-height: 350px;
   cursor: pointer;
 }
 
-.project-images-grid.two-column {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.project-images-grid.two-column .project-media {
-  height: 300px;
+/* Two column grid for desktop only */
+@media (min-width: 769px) {
+  .project-images-grid.two-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .project-images-grid.two-column .project-media {
+    height: 300px;
+  }
 }
 
 /* Image/Video Modal */
