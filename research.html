@@ -243,5 +243,66 @@
       </section>
     </main>
   </div>
+
+  <!-- Modal for Image/Video Magnification -->
+  <div id="mediaModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <video class="modal-content" id="modalVideo" controls style="display: none;">
+      <source id="modalVideoSource" src="" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    // Get modal elements
+    const modal = document.getElementById('mediaModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalVideoSource = document.getElementById('modalVideoSource');
+    const closeBtn = document.getElementsByClassName('modal-close')[0];
+
+    // Add click event to all images and videos
+    document.querySelectorAll('.project-media, .project-media-float, .media-image').forEach(media => {
+      media.addEventListener('click', function() {
+        modal.classList.add('active');
+        
+        if (this.tagName === 'VIDEO') {
+          // Handle video
+          modalImg.style.display = 'none';
+          modalVideo.style.display = 'block';
+          modalVideoSource.src = this.querySelector('source').src;
+          modalVideo.load();
+          modalVideo.play();
+        } else {
+          // Handle image
+          modalVideo.style.display = 'none';
+          modalImg.style.display = 'block';
+          modalImg.src = this.src;
+        }
+      });
+    });
+
+    // Close modal when clicking X
+    closeBtn.onclick = function() {
+      modal.classList.remove('active');
+      modalVideo.pause();
+    }
+
+    // Close modal when clicking outside
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.classList.remove('active');
+        modalVideo.pause();
+      }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        modal.classList.remove('active');
+        modalVideo.pause();
+      }
+    });
+  </script>
 </body>
 </html>
