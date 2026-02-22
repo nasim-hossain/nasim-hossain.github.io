@@ -511,6 +511,62 @@ header nav a.active {
   transition: all 0.3s;
 }
 
+/* Single image with consistent size */
+.project-media.single-image {
+  max-width: 600px;
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Image with text wrap */
+.project-media-float {
+  float: right;
+  max-width: 400px;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 0 0 1.5rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-media-float:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
+/* Clear float after wrapped content */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Multiple Images Grid */
+.project-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.project-images-grid .project-media {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  object-fit: cover;
+  height: 250px;
+}
+
+.project-images-grid.two-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.project-images-grid.two-column .project-media {
+  height: 300px;
+}
+
 /* News Thumbnail */
 .news-thumbnail {
   width: 100%;
