@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Mir Md Nasim Hossain</title>
+  <title>Media and Awards - Mir Md Nasim Hossain</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -13,9 +13,9 @@
       <a href="index.html">Home</a>
       <a href="research.html">Research and Projects</a>
       <a href="publications.html">Publications and Talks</a>
-      <a href="media.html">Media and Awards</a>
+      <a href="media.html" class="active">Media and Awards</a>
       <a href="teaching.html">Teaching</a>
-      <a href="cv.html" class="active">CV</a>
+      <a href="cv.html">CV</a>
     </nav>
   </header>
 
@@ -34,25 +34,32 @@
     </aside>
 
     <main class="content">
-      <div class="cv-header">
-        <h2>Curriculum Vitae</h2>
-        <a href="assets/documents/nasim_cv.pdf" download class="cv-download-btn-minimal">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download PDF
-        </a>
-      </div>
       <section>
-        <div class="cv-preview-container">
-          <iframe src="assets/documents/nasim_cv.pdf" class="cv-preview"></iframe>
-          <p class="cv-preview-note">If the preview doesn't load, please <a href="assets/documents/nasim_cv.pdf" download>download the PDF directly</a>.</p>
+        <h2>Media Attention</h2>
+        <div class="media-grid">
+          <div class="media-item"><img src="assets/images/hpc_wire.png" alt="HPCwire Readers' Choice Award 2025" class="media-image"><div class="media-content"><h4>Won HPCwire Readers' Choice Award 2025</h4><p>Research on new blood vessel growth won the 2025 HPCwire Readers' Choice Award for Best Use of HPC in Life Sciences!</p></div></div>
+          <div class="media-item"><img src="assets/images/nsf_access_news_feature.png" alt="NSF ACCESS News Feature" class="media-image"><div class="media-content"><h4>Featured on NSF ACCESS News</h4><p>Research on hemodynamic characteristics of new blood vessel sprouts highlighted in national science news.</p></div></div>
+          <div class="media-item"><img src="assets/images/function_journal_cover.png" alt="Function Journal Cover" class="media-image"><div class="media-content"><h4>Cover Feature in Function Journal</h4><p>Research on angiogenic microvascular wall shear stress featured as the cover image of Function Journal.</p></div></div>
+          <div class="media-item"><img src="assets/images/medical_xpress_feature.png" alt="Medical Xpress Feature" class="media-image"><div class="media-content"><h4>Featured on Medical Xpress</h4><p>Angiogenic wall shear stress patterns research covered in medical news.</p></div></div>
         </div>
       </section>
     </main>
   </div>
-
+  <div id="mediaModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+  <script>
+    const modal = document.getElementById('mediaModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementsByClassName('modal-close')[0];
+    document.querySelectorAll('.media-image').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() { modal.classList.add('active'); modalImg.src = this.src; });
+    });
+    closeBtn.onclick = function() { modal.classList.remove('active'); }
+    modal.onclick = function(e) { if (e.target === modal) modal.classList.remove('active'); }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') modal.classList.remove('active'); });
+  </script>
 </body>
 </html>
