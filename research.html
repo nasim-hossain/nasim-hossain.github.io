@@ -181,6 +181,17 @@
     closeBtn.onclick = function() { modal.classList.remove('active'); modalVideo.pause(); }
     modal.onclick = function(e) { if (e.target === modal) { modal.classList.remove('active'); modalVideo.pause(); } }
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { modal.classList.remove('active'); modalVideo.pause(); } });
+
+    // Manually scroll to the URL hash anchor, since autoplay videos and layout
+    // shifts can cause the browser's native anchor jump to land in the wrong place
+    function scrollToHash() {
+      if (location.hash) {
+        const el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    window.addEventListener('DOMContentLoaded', scrollToHash);
+    window.addEventListener('load', scrollToHash); // re-run once videos/images are fully loaded
   </script>
 </body>
 </html>
